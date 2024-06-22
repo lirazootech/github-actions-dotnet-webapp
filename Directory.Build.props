@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);/workspaces/github-actions-dotnet-webapp/github4womendotnet/github4womendotnet.csproj</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>
+
