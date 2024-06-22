@@ -31,6 +31,6 @@ jobs:
       - name: Configurar ambiente Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '20'
       - name: Executar ação agendada
         run: echo "Executando ação agendada a cada hora"
