@@ -1,11 +1,9 @@
-name: A workflow for my Hello World file
+name: Meu Workflow
 
 on:
   push:
     branches:
       - main
-  schedule:
-    - cron: "0 * * * *"
 
 jobs:
   build:
@@ -15,9 +13,24 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v2
 
-      # Adicione outras ações pré-existentes aqui, se necessário.
+      - name: Compilar o projeto .NET
+        run: dotnet build
 
-      - name: Executar script personalizado
-        run: |
-          # Seu script personalizado aqui
+      - name: Executar testes
+        run: dotnet test
 
+      - name: Executar ação de push
+        run: echo "Executando ação acionada por push"
+
+  scheduled:
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v2
+      - name: Configurar ambiente Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Executar ação agendada
+        run: echo "Executando ação agendada a cada hora"
